@@ -2,39 +2,42 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Solution150364 {
-    class Node{
+    class Node {
         int num;
         ArrayList<Integer> vertex;
+
         public Node(int num, ArrayList<Integer> vertex) {
             this.num = num;
             this.vertex = vertex;
         }
 
         int idx = -1;
-        int drop(){
+
+        int drop() {
             idx = (idx + 1) % vertex.size();
             return vertex.get(idx);
         }
 
     }
+
     Node[] nodes;
     int N;
+
     public int[] solution(int[][] edges, int[] target) {
         int[] answer = {};
         N = target.length;
         nodes = new Node[N];
 
         for (int i = 0; i < N; i++) {
-            if (target[i] == 0){
+            if (target[i] == 0) {
                 nodes[i] = new Node(i, new ArrayList<>());
-            }
-            else {
+            } else {
                 nodes[i] = new Node(i, null);
             }
         }
 
         for (int[] ints : edges) {
-            nodes[ints[0]-1].vertex.add(ints[1]-1);
+            nodes[ints[0] - 1].vertex.add(ints[1] - 1);
         }
 
         for (Node node : nodes) {
@@ -48,10 +51,10 @@ public class Solution150364 {
             targetList[i] = new ArrayList<>();
 
         int i;
-        loop :
-        for (i = 0;; i++) {
+        loop:
+        for (i = 0; ; i++) {
             Node node = nodes[0];
-            while (node.vertex != null){
+            while (node.vertex != null) {
                 node = nodes[node.drop()];
             }
             targetList[node.num].add(i);
@@ -61,7 +64,7 @@ public class Solution150364 {
 
                 int len = targetList[j].size();
 
-                if (len > target[j]){
+                if (len > target[j]) {
                     return new int[]{-1};
                 }
 
@@ -83,15 +86,13 @@ public class Solution150364 {
             if (target[j] == 0) continue;
             int size = targetList[j].size();
             for (int k = 0; k < size; k++) {
-                if ((target[j] - 1) <= (size - k - 1) * 3){
+                if ((target[j] - 1) <= (size - k - 1) * 3) {
                     answer[targetList[j].get(k)] = 1;
                     target[j] -= 1;
-                }
-                else if ((target[j] - 2) <= (size - k - 1) * 3){
+                } else if ((target[j] - 2) <= (size - k - 1) * 3) {
                     answer[targetList[j].get(k)] = 2;
                     target[j] -= 2;
-                }
-                else {
+                } else {
                     answer[targetList[j].get(k)] = 3;
                     target[j] -= 3;
                 }
