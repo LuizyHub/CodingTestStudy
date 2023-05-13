@@ -21,12 +21,12 @@ public class Beak1629 {
             return A.mod(C);
         }
         BigInteger ans;
-        if (b.mod(BigInteger.TWO).equals(BigInteger.ZERO)){
-            BigInteger tmp = exp(b.divide(BigInteger.TWO));
+        if (b.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO)){
+            BigInteger tmp = exp(b.divide(BigInteger.valueOf(2)));
             ans = tmp.mod(C).pow(2).mod(C);
         }
         else {
-            BigInteger tmp = exp(b.subtract(BigInteger.ONE).divide(BigInteger.TWO));
+            BigInteger tmp = exp(b.subtract(BigInteger.ONE).divide(BigInteger.valueOf(2)));
             ans = tmp.mod(C).pow(2).multiply(A.mod(C)).mod(C);
         }
         return ans;
