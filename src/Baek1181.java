@@ -18,7 +18,7 @@ public class Baek1181 {
         for (int i = 0; i < N; i++) {
             wordsMap.add(br.readLine());
         }
-        words = wordsMap.toArray(String[]::new);
+//        words = wordsMap.toArray(String[]::new);
 
         Arrays.sort(words,
                 (o1, o2) -> Integer.compare(o1.length(), o2.length()) == 0 ?

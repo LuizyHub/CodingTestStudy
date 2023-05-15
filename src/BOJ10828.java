@@ -20,7 +20,7 @@ public class BOJ10828 {
             st = new StringTokenizer(br.readLine());
             String order = st.nextToken();
             switch (order.charAt(0)) {
-                case 'p' -> {
+                case 'p':
                     if (order.length() == 4) {
                         stack.addLast(st.nextToken());
                     } else {
@@ -29,20 +29,22 @@ public class BOJ10828 {
                         else
                             sb.append(stack.pollLast()).append('\n');
                     }
-                }
-                case 's' -> sb.append(stack.size()).append('\n');
-                case 'e' -> {
+                    break;
+                case 's':
+                    sb.append(stack.size()).append('\n');
+                    break;
+                case 'e':
                     if (stack.isEmpty())
                         sb.append('1').append('\n');
                     else
                         sb.append('0').append('\n');
-                }
-                case 't' -> {
+                    break;
+                case 't':
                     if (stack.isEmpty())
                         sb.append("-1").append('\n');
                     else
                         sb.append(stack.peekLast()).append('\n');
-                }
+                    break;
             }
         }
 
