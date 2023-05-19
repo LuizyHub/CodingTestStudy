@@ -10,6 +10,7 @@ public class BOJ10773 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         K = Integer.parseInt(br.readLine());
 
+
         ArrayDeque<Integer> deque = new ArrayDeque<>();
 
         while (K-- > 0) {
