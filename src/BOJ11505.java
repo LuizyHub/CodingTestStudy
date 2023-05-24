@@ -17,7 +17,7 @@ public class BOJ11505 {
         idx >>= 1;
 
         while (idx > 0) {
-            tree[idx] = tree[idx<<1] * tree[(idx<<1) + 1] % MOD;
+            tree[idx] = tree[idx << 1] * tree[(idx << 1) + 1] % MOD;
             idx >>= 1;
         }
     }
@@ -58,7 +58,7 @@ public class BOJ11505 {
             startIdx <<= 1;
         }
 
-        tree = new long[startIdx<<1];
+        tree = new long[startIdx << 1];
 
         Arrays.fill(tree, 1);
 
@@ -71,8 +71,7 @@ public class BOJ11505 {
 
             if (st.nextToken().equals("1")) {
                 updateTree(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
-            }
-            else {
+            } else {
                 sb.append(query(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()))).append('\n');
             }
         }
