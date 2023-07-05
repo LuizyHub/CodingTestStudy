@@ -6,16 +6,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
-        ArrayList<Integer> arr = new ArrayList<>(N);
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            arr.add(Integer.parseInt(st.nextToken()));
+        long sum = 0;
+        char[] s1 = st.nextToken().toCharArray(), s2 = st.nextToken().toCharArray();
+        for (char c : s1) {
+            for (char c1 : s2) {
+                sum += (c - '0') * (c1 - '0');
+            }
         }
-
-        arr.sort(Integer::compareTo);
-
-        System.out.println(arr.get(K-1));
+        System.out.println(sum);
     }
 }
